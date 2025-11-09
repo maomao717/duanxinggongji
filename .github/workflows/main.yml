@@ -23,8 +23,6 @@ jobs:
     - name: 安装依赖包 
       run: |
         pip3 install requests
-        pip3 install time
-        pip3 install sys 
 
         
     - name: 运行短信发送程序（限时1小时）
