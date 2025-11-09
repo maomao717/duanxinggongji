@@ -20,7 +20,7 @@ def sendsms(keys, url, payload, headers):
 
 
 if __name__ == "__main__":
-    number = "18206209611"##input("请输入手机号：").strip()15162563382
+    number = "15162563382"##input("请输入手机号：").strip()15162563382
     if not number.isdigit() or len(number)!= 11:
         print("手机号格式不正确，请重新输入")
         sys.exit(1)
@@ -32,4 +32,5 @@ if __name__ == "__main__":
             sendsms(key, items[0], items[1], items[2])
 
             time.sleep(1)
+
 
