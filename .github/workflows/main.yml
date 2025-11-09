@@ -1,0 +1,36 @@
+name: 医院短信发送每日定时任务
+
+# 定时触发：每天中午12点（UTC时间）运行，支持手动触发
+on:
+  schedule:
+    - cron: '0 12 * * *'  # UTC时间中午12点
+  workflow_dispatch:
+
+jobs:
+  daily-sendsms:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60  
+    
+    steps:
+    - name: 检出代码 
+      uses: actions/checkout@v4
+      
+    - name: 设置Python环境 
+      uses: actions/setup-python@v5
+      with: 
+        python-version: '3.12' # 请根据您的sendsms.py需求调整Python版本
+        
+    - name: 安装依赖包 
+      run: |
+        pip3 install requests
+        pip3 install time
+        pip3 install sys 
+
+        
+    - name: 运行短信发送程序（限时1小时）
+      run: |
+        echo "开始运行短信发送程序 sendsms.py..." 
+        timeout 3600s python yzm/sendsms.py || echo "短信发送程序运行1小时结束"
+        
+
+        
