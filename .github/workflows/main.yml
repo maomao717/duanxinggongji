@@ -2,8 +2,8 @@ name: 医院短信发送每日定时任务
 
 # 定时触发：每天中午12点（UTC时间）运行，支持手动触发
 on:
-  schedule:
-    - cron: '0 4 * * *'  # UTC时间中午12点
+  #schedule:
+  #  - cron: '0 4 * * *'  # UTC时间中午12点
   workflow_dispatch:
 
 jobs:
