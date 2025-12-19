@@ -28,7 +28,7 @@ jobs:
     - name: 运行短信发送程序（限时1小时）
       run: |
         echo "开始运行短信发送程序 sendsms.py..." 
-        timeout 3600s python yzm/sendsms.py || echo "短信发送程序运行1小时结束"
+        timeout 60s python yzm/sendsms.py || echo "短信发送程序运行1小时结束"
         
 
         
